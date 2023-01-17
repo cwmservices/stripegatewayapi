@@ -33,7 +33,6 @@
 // require("dotenv").config();
 const express = require("express");
 const Stripe = require("stripe");
-const lists = require("./lists.json");
 const stripe = Stripe(
   "sk_test_51KqJ4DAAUyqQ9D2QYq0XQgT5fpbO2LfNOUbdF8sCPhfMnC1WmFkr2LEbn6aOibauP8EHT7R53cPIX3bT39EI8mCk00IQcYDpqP",
   { apiVersion: "2020-08-27" }
@@ -67,10 +66,6 @@ app.post("/payment", async (req, res) => {
     console.log(e.message);
     res.json({ error: e.message });
   }
-});
-
-app.get("/products", (req, res) => {
-	res.send(products);
 });
 
 app.listen(PORT, (req, res) => {
